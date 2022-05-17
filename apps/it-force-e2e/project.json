@@ -1,12 +1,12 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/it-force-e2e/src",
+  "sourceRoot": "apps/it-force-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "packages/it-force-e2e/cypress.json",
+        "cypressConfig": "apps/it-force-e2e/cypress.json",
         "devServerTarget": "it-force:serve:development"
       },
       "configurations": {
@@ -17,12 +17,18 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/it-force-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": [
+          "apps/it-force-e2e/**/*.{js,ts}"
+        ]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["it-force"]
+  "implicitDependencies": [
+    "it-force"
+  ]
 }

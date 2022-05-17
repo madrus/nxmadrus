@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/it-force/src",
+  "sourceRoot": "apps/it-force/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,15 +11,15 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/packages/it-force",
-        "index": "packages/it-force/src/index.html",
+        "outputPath": "dist/apps/it-force",
+        "index": "apps/it-force/src/index.html",
         "baseHref": "/",
-        "main": "packages/it-force/src/main.tsx",
-        "polyfills": "packages/it-force/src/polyfills.ts",
-        "tsConfig": "packages/it-force/tsconfig.app.json",
+        "main": "apps/it-force/src/main.tsx",
+        "polyfills": "apps/it-force/src/polyfills.ts",
+        "tsConfig": "apps/it-force/tsconfig.app.json",
         "assets": [
-          "packages/it-force/src/favicon.ico",
-          "packages/it-force/src/assets"
+          "apps/it-force/src/favicon.ico",
+          "apps/it-force/src/assets"
         ],
         "styles": [],
         "scripts": [],
@@ -35,8 +35,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "packages/it-force/src/environments/environment.ts",
-              "with": "packages/it-force/src/environments/environment.prod.ts"
+              "replace": "apps/it-force/src/environments/environment.ts",
+              "with": "apps/it-force/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -73,17 +73,17 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "packages/it-force/**/*.{ts,tsx,js,jsx}"
+          "apps/it-force/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/packages/it-force"
+        "coverage/apps/it-force"
       ],
       "options": {
-        "jestConfig": "packages/it-force/jest.config.ts",
+        "jestConfig": "apps/it-force/jest.config.ts",
         "passWithNoTests": true
       }
     }
