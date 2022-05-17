@@ -67,6 +67,30 @@ My answers:
 
 We have got created two packages inside the `packages` folder: `it-force` and `it-force-e2e`.
 
+### Run the project
+
+Here is the command:
+
+```bash
+yarn nx run it-force:start
+```
+
+### Linting
+
+Run linting by:
+
+```bash
+yarn nx run it-force:lint
+```
+
+Most probably, the first time you run it, it fails because a bunch of extra NPM packages are missing. I have had to install the following five as dev dependencies:
+
+- `@nrwl/eslint-plugin-nx`
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
+- `eslint`
+- `eslint-config-prettier`
+
 ---
 
 ## Adding capabilities to your workspace
