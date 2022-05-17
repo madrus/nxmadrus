@@ -2,9 +2,72 @@
 
 This project was generated using [Nx](https://nx.dev).
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p style="text-align: left;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="150"></p>
 
-🔎 **Smart, Fast and Extensible Build System**
+## Setup
+
+### Nx Root Project Creation
+
+I have installed the initial project with this command: `npx create-nx-workspace test`. Further, my choices were:
+- `ts`
+- no Nx Cloud
+
+Then I have deleted `package-lock.json` and ran `yarn` to switch from `npm` to `yarn`. Also, I have rename my main git branch from `master` to `main`.
+
+I have copied my favorite prettier en eslint files from another project.
+
+### Plugins
+
+Added the following plugins:
+
+```bash
+yarn add @nrwl/react
+```
+
+This is the list of installed plugins (`yarn nx list`):
+
+```text
+> NX Installed plugins:
+  @nrwl/cypress (executors,generators)
+  @nrwl/jest (executors,generators)
+  @nrwl/js (executors,generators)
+  @nrwl/linter (executors,generators)
+  @nrwl/react (executors,generators)
+  @nrwl/storybook (executors,generators)
+  @nrwl/web (executors,generators)
+  @nrwl/workspace (executors,generators)
+  nx (executors)
+```
+
+We can check __capabilities__ of the installed plugins, e.g.:
+
+```bash
+yarn nx list @nrwl/react
+```
+
+### Generate the React Project
+
+To see the generation options, run something like this:
+
+```bash
+yarn nx g @nrwl/react:application --help
+```
+
+Use `--dry-run` option to see the dialog and the list of files to be created without actually creating them.
+
+```bash
+yarn nx g @nrwl/react:application
+```
+
+My answers:
+
+- `IT Force`
+- `Emotion`
+- `React Router`
+
+We have got created two packages inside the `packages` folder: `it-force` and `it-force-e2e`.
+
+---
 
 ## Adding capabilities to your workspace
 
