@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -51,7 +53,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "it-force:build",
-        "hmr": true
+        "hmr": true,
+        "port": 3000
       },
       "configurations": {
         "development": {
@@ -65,14 +68,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/it-force/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "packages/it-force/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/it-force"],
+      "outputs": [
+        "coverage/packages/it-force"
+      ],
       "options": {
         "jestConfig": "packages/it-force/jest.config.ts",
         "passWithNoTests": true

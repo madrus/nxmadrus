@@ -2,7 +2,14 @@
   "name": "nxmadrus",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nx": "nx",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "lint": "nx workspace-lint && nx lint",
+    "e2e": "nx e2e"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.9.0",
