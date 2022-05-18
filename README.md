@@ -91,6 +91,16 @@ Most probably, the first time you run it, it fails because a bunch of extra NPM 
 - `eslint`
 - `eslint-config-prettier`
 
+## Styleguidist with Typescript support
+
+Add the following packages:
+
+```bash
+yarn add -D react-styleguidist react-docgen-typescript
+```
+
+
+
 ---
 
 ## Adding capabilities to your workspace
