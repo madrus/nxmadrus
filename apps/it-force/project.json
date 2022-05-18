@@ -86,6 +86,15 @@
         "jestConfig": "apps/it-force/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "ui": {
+      "executor": "nx:run-script",
+      "outputs": [
+        "apps/it-force/docs"
+      ],
+      "options": {
+        "script": "styleguidist server --config apps/it-force/styleguide.config.js"
+      }
     }
   },
   "tags": []
