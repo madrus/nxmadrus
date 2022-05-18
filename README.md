@@ -99,7 +99,103 @@ Add the following packages:
 yarn add -D react-styleguidist react-docgen-typescript
 ```
 
+Styleguidist is a great tool but not without some toll:
 
+1. `Styleguidist` is 100% JS in code en docs, has not TS-support except via `react-docgen-typescript` plugin -- very fragile
+2. `Styleguidist` requires referencing, using and maybe even tweaking the existing project webpack config file, otherwise one had to create an alternative `webpack.config.js` -- again very fragile
+3. `Styleguidist` presents the UI-components in the `components` folder by default. However, most apps have that folder filled in with React function components rather than Storybook-like UI-components
+
+Here are the tweaks so far.
+
+<details>
+<summary><code>apps/it-force/workspace.json</code></summary>
+
+```json
+{
+  "it-force": {
+    "root": "apps/it-force",
+    "targets": {
+      "start": {
+        "executor": "nx:run-script",
+        "options": {
+          "script": "npx styleguidist server"
+        }
+      },
+      "build": {
+        "executor": "nx:run-script",
+        "options": {
+          "script": "npx styleguidist build"
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><code>apps/it-force/styleguide.config.js</code></summary>
+
+```js
+const path = require('path')
+
+module.exports = {
+  components: 'src/ui/**/*.{js,jsx,ts,tsx}',
+  propsParser: (filePath, source, resolver, handlers) => {
+    const { ext } = path.parse(filePath)
+    return ext === '.tsx'
+      ? require('react-docgen-typescript').parse(
+          filePath,
+          source,
+          resolver,
+          handlers
+        )
+      : require('react-docgen').parse(source, resolver, handlers)
+  },
+  webpackConfig: {
+    module: {
+      rules: [
+        // Babel loader will use your project’s babel.config.js
+        {
+          test: /\.(js|jsx|ts|tsx)$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+        // Other loaders that are needed for your components
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+      ],
+    },
+  },
+}
+```
+
+</details>
+
+
+<details>
+<summary><code>apps/it-force/project.json</code></summary>
+
+```json
+"configurations": {
+  "ui": {
+    "executor": "nx:run-script",
+    "outputs": [
+      "apps/it-force/docs"
+    ],
+    "options": {
+      "script": "styleguidist server --config apps/it-force/styleguide.config.js"
+    }
+  }
+},
+```
+
+</details>
+
+<br /><br /><br />
 
 ---
 
