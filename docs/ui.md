@@ -1,4 +1,4 @@
-# ui
+# UI with StyleGuidist
 
 This library was generated with [Nx](https://nx.dev) and [@nxext/react]()_
 

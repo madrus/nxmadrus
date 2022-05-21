@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
+    "docs": "npx docsify-cli serve docs",
     "start": "nx serve",
     "build": "nx build",
     "build:ui": "nx build ui",
