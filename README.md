@@ -175,7 +175,6 @@ module.exports = {
 
 </details>
 
-
 <details>
 <summary><code>apps/it-force/project.json</code></summary>
 

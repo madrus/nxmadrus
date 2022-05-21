@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  components: 'src/ui/**/*.{js,jsx,ts,tsx}',
+  components: 'src/components/**/*.{js,jsx,ts,tsx}',
   propsParser: (filePath, source, resolver, handlers) => {
     const { ext } = path.parse(filePath)
     return ext === '.tsx'
