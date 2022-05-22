@@ -1,8 +1,8 @@
-# ui
+# UI with StyleGuidist
 
-This library was generated with [Nx](https://nx.dev) and [@nxext/react]()_
+This library was generated with [Nx](https://nx.dev) and [@nxext/react]().
 
-## Project generation
+## Library Package Generation
 
 ```bash
 yarn add -D @nxext/react
@@ -10,20 +10,38 @@ yarn nx g @nxext/react:library ui --buildable --add-tailwind --dry-run
 yarn nx g @nxext/react:library ui --buildable --add-tailwind
 ```
 
-## Build the library
+## Build the library with Vitejs
 
 Run `yarn nx build ui` to build the library with Vite.
 
-## Running unit tests
+## Run unit tests with Jest
 
-Run `yarn nx test ui` to execute the unit tests via [Jest](https://jestjs.io). Mybe not so important in a UI components library.
+Run `yarn nx test ui` to execute the unit tests via [Jest](https://jestjs.io).
+
+!> Unit tests may be not so important in a pure UI components library.
+
+?> __TODO:__ if applicable, replace Jest with Vitest.
+
+## Add Styleguidist with Typescript support
+
+Add the following packages:
+
+```bash
+yarn add -D react-styleguidist react-docgen-typescript
+```
+
+Styleguidist is a great tool but not without some toll:
+
+1. `Styleguidist` is 100% JS in code en docs, has not TS-support except via `react-docgen-typescript` plugin -- very fragile
+2. `Styleguidist` requires referencing, using and maybe even tweaking the existing project webpack config file, otherwise one had to create an alternative `webpack.config.js` -- again very fragile
+3. `Styleguidist` presents the UI-components in the `components` folder by default. However, most apps have that folder filled in with React function components rather than Storybook-like UI-components
 
 ## Configure Styleguidist
 
 Add `styleguide.config.js` to the root of the package:
 
 <details>
-<summary><code>packages/ui/styleguide.config.js</code></summary>
+<summary>packages/ui/styleguide.config.js</summary>
 
 ```js
 const path = require('path')
@@ -69,13 +87,29 @@ module.exports = {
 
 </details>
 
-It contains 3 important sections:
+The config file contains 3 important sections:
 
 1. `components`: specifies the path to UI-components.
 2. `propsParser`: specifies `react-docgen-typescript` as our parser so that our Styleguidist "understands" Typescript types and interfaces without the need for prop types.
 3. `webpackConfig`: our minimal webpack configuration independently of any other existing one anywhere inside our monorepo.
 
-## Run Styleguidist scritps
+Add the scripts section to `package.json` file in the package root:
+
+<details>
+<summary>packages/ui/package.json</summary>
+
+```json
+...
+"scripts": {
+  "start-ui": "styleguidist server",
+  "build-ui": "styleguidist build"
+},
+...
+```
+
+</details>
+
+## Run Styleguidist scripts
 
 If we have done everything properly, we can run two known Styleguidist scripts:
 
