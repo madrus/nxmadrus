@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import NxWelcome from './nx-welcome'
+import { Test } from '@madrus/ui'
 
 import { Route, Routes, Link } from 'react-router-dom'
 
@@ -41,9 +42,12 @@ export function App() {
         <Route
           path="/page-2"
           element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
+            <>
+              <Test name={'Big Boss'} />
+              <div>
+                <Link to="/">Click here to go back to root page.</Link>
+              </div>
+            </>
           }
         />
       </Routes>
