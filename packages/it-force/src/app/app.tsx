@@ -1,17 +1,10 @@
-import styled from '@emotion/styled'
-import NxWelcome from './nx-welcome'
+import { Test } from '@madrus/ui'
 
 import { Route, Routes, Link } from 'react-router-dom'
 
-const StyledApp = styled.div`
-  // Your style here
-`
-
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="it-force" />
-
+    <div>
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
@@ -41,14 +34,17 @@ export function App() {
         <Route
           path="/page-2"
           element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
+            <>
+              <Test name={'Big Boss'} />
+              <div>
+                <Link to="/">Click here to go back to root page.</Link>
+              </div>
+            </>
           }
         />
       </Routes>
       {/* END: routes */}
-    </StyledApp>
+    </div>
   )
 }
 
