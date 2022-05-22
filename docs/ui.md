@@ -14,14 +14,6 @@ yarn nx g @nxext/react:library ui --buildable --add-tailwind
 
 Run `yarn nx build ui` to build the library with Vite.
 
-## Run unit tests with Jest
-
-Run `yarn nx test ui` to execute the unit tests via [Jest](https://jestjs.io).
-
-!> Unit tests may be not so important in a pure UI components library.
-
-?> __TODO:__ if applicable, replace Jest with Vitest.
-
 ## Add Styleguidist with Typescript support
 
 Add the following packages:
@@ -123,3 +115,82 @@ yarn nx start-ui ui
 # or
 yarn nx run ui:start-ui
 ```
+
+## Add Tailwind
+
+Initial setup
+
+```bash
+yarn add -D tailwindcss autoprefixer postcss-cli postcss-import
+cd packages/ui
+npx tailwind init --full
+cd ../..
+```
+
+Inside the `ui` package create `postcss.config.js` file.
+
+```js
+module.exports = {
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+Inside the generated `tailwind.config.js` we expand the `content` section:
+
+```js
+const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
+const { join } = require('path')
+
+module.exports = {
+  content: [
+    join(__dirname, './src/**/!(*.spec).{html,ts,tsx}'),
+    ...createGlobPatternsForDependencies(__dirname),
+  ],
+  ...
+}
+```
+
+Inside the `src/assets` folder, we create `tailwind.css`:
+
+```css
+@import "tailwindcss/base";
+@import "./custom-base-styles.css";
+
+@import "tailwindcss/components";
+@import "./custom-components.css";
+
+@import "tailwindcss/utilities";
+@import "./custom-utilities.css";
+```
+
+You will probably see the linting warning: `Unknown at rule @tailwindcss`. In VSCode we can add [PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss) extension to get rid of this warning (tip of TailwindCSS).
+
+## Unit testing with Jest
+
+To be able to use extended functions of `@testing-library/jest-dom`, we need to install and configure it:
+
+```bash
+yarn add -D @testing-library/jest-dom
+```
+
+Now add `src/setupTests.ts` file with this line:
+
+```ts
+import '@testing-library/jest-dom'
+```
+
+Finally, configure Jest to use this setup file by adding two lines to `jest.config.ts`:
+
+```ts
+setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+testEnvironment: 'jsdom',
+```
+
+Run `yarn nx test ui` to execute the unit tests via [Jest](https://jestjs.io).
+
+!> __TODO:__ replace Jest with Vitest.
+
