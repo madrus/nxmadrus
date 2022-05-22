@@ -1,0 +1,48 @@
+:root {
+  --base-font-size: 16px;
+  --content-max-width: 60vw;
+  --theme-color: rgb(240, 150, 75);
+  --link-color: var(--theme-color);
+  --link-color--hover: rgb(240, 100, 50);
+  --sidebar-name-margin: 0;
+  --sidebar-name-padding: 0;
+  --code-font-size: 0.95em;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.sidebar > h1 {
+  margin-bottom: -0.75em;
+  margin-top: 0.75em;
+}
+
+.sidebar > h1 img {
+  height: 6em;
+  border-radius: 0.6em;
+}
+
+.sidebar-nav a,
+.sidebar-nav a:hover {
+  text-decoration: none;
+}
+
+.sidebar-nav a:hover {
+  color: var(--link-color--hover);
+}
+
+.markdown-section a,
+.markdown-section a:hover {
+  text-decoration: none;
+}
+
+.markdown-section a code {
+  color: var(--link-color);
+}
+
+summary,
+.markdown-section summary code {
+  color: var(--link-color) !important;
+}

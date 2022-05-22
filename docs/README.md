@@ -20,12 +20,13 @@ This project was generated using [Nx](https://nx.dev).
 ### Nx Root Project Creation
 
 I have installed the initial project with this command: `npx create-nx-workspace it-force`. Further, my choices were:
-- `ts`
+- React Typescript
 - no Nx Cloud
+- Stylguidist UI library with `vitejs`
 
 Then I have deleted `package-lock.json` and ran `yarn` to switch from `npm` to `yarn`. Also, I have rename my main git branch from `master` to `main`.
 
-I have copied my favorite prettier en eslint files from another project.
+I have copied my favorite `prettier` en `eslint` related files from another project.
 
 ### Plugins
 
@@ -88,6 +89,8 @@ Here is the command:
 
 ```bash
 yarn nx run it-force:start
+# or, as it-force is the default project
+yarn nx start
 ```
 
 ### Linting
@@ -96,116 +99,14 @@ Run linting by:
 
 ```bash
 yarn nx run it-force:lint
+# or, as it-force is the default project
+yarn nx lint
 ```
 
-Most probably, the first time you run it, it fails because a bunch of extra NPM packages are missing. I have had to install the following five as dev dependencies:
+Most probably, the first time you run it, it fails because a bunch of extra NPM packages is missing. I have had to install at least the following five as dev dependencies:
 
 - `@nrwl/eslint-plugin-nx`
 - `@typescript-eslint/eslint-plugin`
 - `@typescript-eslint/parser`
 - `eslint`
 - `eslint-config-prettier`
-
-## Styleguidist with Typescript support
-
-Add the following packages:
-
-```bash
-yarn add -D react-styleguidist react-docgen-typescript
-```
-
-Styleguidist is a great tool but not without some toll:
-
-1. `Styleguidist` is 100% JS in code en docs, has not TS-support except via `react-docgen-typescript` plugin -- very fragile
-2. `Styleguidist` requires referencing, using and maybe even tweaking the existing project webpack config file, otherwise one had to create an alternative `webpack.config.js` -- again very fragile
-3. `Styleguidist` presents the UI-components in the `components` folder by default. However, most apps have that folder filled in with React function components rather than Storybook-like UI-components
-
-Here are the tweaks so far.
-
-<details>
-<summary><code>apps/it-force/workspace.json</code></summary>
-
-```json
-{
-  "it-force": {
-    "root": "apps/it-force",
-    "targets": {
-      "start": {
-        "executor": "nx:run-script",
-        "options": {
-          "script": "npx styleguidist server"
-        }
-      },
-      "build": {
-        "executor": "nx:run-script",
-        "options": {
-          "script": "npx styleguidist build"
-        }
-      }
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><code>apps/it-force/styleguide.config.js</code></summary>
-
-```js
-const path = require('path')
-
-module.exports = {
-  components: 'src/ui/**/*.{js,jsx,ts,tsx}',
-  propsParser: (filePath, source, resolver, handlers) => {
-    const { ext } = path.parse(filePath)
-    return ext === '.tsx'
-      ? require('react-docgen-typescript').parse(
-          filePath,
-          source,
-          resolver,
-          handlers
-        )
-      : require('react-docgen').parse(source, resolver, handlers)
-  },
-  webpackConfig: {
-    module: {
-      rules: [
-        // Babel loader will use your project’s babel.config.js
-        {
-          test: /\.(js|jsx|ts|tsx)$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-        },
-        // Other loaders that are needed for your components
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
-        },
-      ],
-    },
-  },
-}
-```
-
-</details>
-
-<details>
-<summary><code>apps/it-force/project.json</code></summary>
-
-```json
-"configurations": {
-  "ui": {
-    "executor": "nx:run-script",
-    "outputs": [
-      "apps/it-force/docs"
-    ],
-    "options": {
-      "script": "styleguidist server --config apps/it-force/styleguide.config.js"
-    }
-  }
-},
-```
-
-</details>
-

@@ -12,35 +12,12 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="icon"
         href="images/icon184x184.png">
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
   <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-  <style>
-    :root {
-      --base-font-size: 16px;
-      --content-max-width: 60vw;
-      --theme-color: rgb(80, 25, 80);
-      --link-color: var(--theme-color);
-      --link-color--hover: rgb(240, 100, 50);
-      --sidebar-name-margin: 0;
-      --sidebar-name-padding: 0;
-      --code-font-size: .9em;
-    }
-
-    .sidebar>h1 {
-      margin-bottom: -.75em;
-      margin-top: .75em;
-    }
-
-    .sidebar>h1 img {
-      height: 6em;
-      border-radius: .6em;
-    }
-
-    .markdown-section a code {
-      color: var(--link-color);
-    }
-
-  </style>
+        href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet"
+        href="index.css">
 </head>
 
 <body>
@@ -54,8 +31,8 @@
       basePath: '/',
       maxLevel: 4,
       subMaxLevel: 2,
-      nameLink: {
-        '/': '#/',
+      markdown: {
+        smartypants: true,
       },
       search: {
         noData: {
