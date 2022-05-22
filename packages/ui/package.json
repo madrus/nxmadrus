@@ -11,6 +11,8 @@
   },
   "scripts": {
     "start-ui": "styleguidist server",
-    "build-ui": "styleguidist build"
+    "build-ui": "styleguidist build",
+    "build-css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch-css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   }
 }
