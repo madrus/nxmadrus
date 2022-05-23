@@ -4,26 +4,17 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
+      "executor": "@nxext/vite:build",
       "outputs": [
         "{options.outputPath}"
       ],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/packages/it-force",
-        "index": "packages/it-force/src/index.html",
+        "outputPath": "dist/apps/it-force",
+        "entryFile": "packages/it-force/src/index.html",
         "baseHref": "/",
-        "main": "packages/it-force/src/main.tsx",
-        "polyfills": "packages/it-force/src/polyfills.ts",
-        "tsConfig": "packages/it-force/tsconfig.app.json",
-        "assets": [
-          "packages/it-force/src/favicon.ico",
-          "packages/it-force/src/assets"
-        ],
-        "styles": [],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "configFile": "@nxext/vite/plugins/vite",
+        "frameworkConfigFile": "@nxext/react/plugins/vite"
       },
       "configurations": {
         "development": {
@@ -49,12 +40,13 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nxext/vite:dev",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "it-force:build",
-        "hmr": true,
-        "port": 3000
+        "outputPath": "dist/apps/it-force",
+        "baseHref": "/",
+        "configFile": "@nxext/vite/plugins/vite",
+        "frameworkConfigFile": "@nxext/react/plugins/vite"
       },
       "configurations": {
         "development": {
@@ -78,13 +70,9 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/packages/it-force"
-      ],
+      "executor": "@nxext/vitest:vitest",
       "options": {
-        "jestConfig": "packages/it-force/jest.config.ts",
-        "passWithNoTests": true
+        "command": "run"
       }
     }
   },

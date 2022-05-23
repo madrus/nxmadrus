@@ -2,15 +2,11 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/ui/src",
   "projectType": "library",
-  "tags": [
-    "styleguidist"
-  ],
+  "tags": ["styleguidist"],
   "targets": {
     "build": {
       "executor": "@nxext/vite:package",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/ui",
         "configFile": "@nxext/vite/plugins/vite-package",
@@ -20,23 +16,15 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/ui/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["packages/ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/packages/ui"
-      ],
+      "executor": "@nxext/vitest:vitest",
       "options": {
-        "jestConfig": "packages/ui/jest.config.ts",
-        "passWithNoTests": true
+        "command": "run"
       }
     }
   }

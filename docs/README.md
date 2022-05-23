@@ -19,7 +19,7 @@ This project was generated using [Nx](https://nx.dev).
 
 ### Nx Root Project Creation
 
-I have installed the initial project with this command: `npx create-nx-workspace it-force`. Further, my choices were:
+I have installed the initial project with this command: `npx create-nx-workspace@latest`. Further, my choices were:
 - React Typescript
 - no Nx Cloud
 - Stylguidist UI library with `vitejs`
@@ -33,7 +33,7 @@ I have copied my favorite `prettier` en `eslint` related files from another proj
 Added the following plugins:
 
 ```bash
-yarn add @nrwl/react @nxext/react
+yarn add @nrwl/react @nxext/react @nxext/vitest
 ```
 
 This is the list of installed plugins (`yarn nx list`):
@@ -110,3 +110,19 @@ Most probably, the first time you run it, it fails because a bunch of extra NPM 
 - `@typescript-eslint/parser`
 - `eslint`
 - `eslint-config-prettier`
+
+## Add Vitest and remove Jest
+
+In the project root run:
+
+```bash
+yarn nx g @nxext/vitest:init
+```
+
+This will create the `vitest.config.ts` file.
+
+Now, we can add Vitest to any of our packages:
+
+```bash
+yarn nx g @nxext/vitest:vitest-project
+```

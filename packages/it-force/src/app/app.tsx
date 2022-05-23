@@ -1,8 +1,9 @@
-import { Test } from '@madrus/ui'
+import { Test } from '../../../ui/src/lib/Test/Test'
+import { FC } from 'react'
 
 import { Route, Routes, Link } from 'react-router-dom'
 
-export function App() {
+export const App: FC = () => {
   return (
     <div>
       {/* START: routes */}
@@ -21,6 +22,7 @@ export function App() {
           </li>
         </ul>
       </div>
+      <h1>Welcome it-force</h1>
       <Routes>
         <Route
           path="/"

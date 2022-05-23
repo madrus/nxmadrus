@@ -25,6 +25,7 @@
     "**/*.js",
     "**/*.jsx",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "jest.config.ts.magweg"
   ]
 }
