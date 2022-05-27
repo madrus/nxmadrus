@@ -10,11 +10,11 @@
       ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/it-force",
-        "entryFile": "apps/it-force/src/index.html",
         "baseHref": "/",
         "configFile": "@nxext/vite/plugins/vite",
-        "frameworkConfigFile": "@nxext/react/plugins/vite"
+        "entryFile": "apps/it-force/src/index.html",
+        "frameworkConfigFile": "@nxext/react/plugins/vite",
+        "outputPath": "dist/apps/it-force"
       },
       "configurations": {
         "development": {
