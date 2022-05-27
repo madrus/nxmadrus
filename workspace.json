@@ -2,8 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "it-force": "packages/it-force",
-    "it-force-e2e": "packages/it-force-e2e",
-    "ui": "packages/ui"
+    "it-force": "apps/it-force",
+    "ui": "libs/ui"
   }
 }

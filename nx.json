@@ -9,35 +9,48 @@
     "defaultCollection": "@nrwl/react"
   },
   "implicitDependencies": {
-    "workspace.json": "*",
+    ".eslintrc": "*",
+    "nx.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
     "tsconfig.base.json": "*",
-    ".eslintrc.json": "*",
-    "nx.json": "*"
+    "workspace.json": "*"
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
   "generators": {
     "@nrwl/react": {
       "application": {
-        "style": "@emotion/styled",
+        "style": "none",
         "linter": "eslint",
         "babel": true
       },
       "component": {
-        "style": "@emotion/styled"
+        "style": "none"
       },
       "library": {
-        "style": "@emotion/styled",
+        "style": "none",
         "linter": "eslint"
       }
     }

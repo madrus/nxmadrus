@@ -1,0 +1,16 @@
+{
+  "name": "it-force",
+  "version": "0.0.1",
+  "description": "it-force",
+  "main": "src/main.ts",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && vite build",
+    "coverage": "vitest run --coverage",
+    "dev": "vite",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test-ui": "vitest --ui"
+  }
+}
