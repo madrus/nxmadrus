@@ -1,32 +1,46 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "esModuleInterop": false,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "target": "es2015",
-    "module": "esnext",
     "lib": [
-      "es2017",
-      "dom"
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "paths": {
       "@madrus/ui": [
-        "packages/ui/src/index.ts"
+        "libs/ui/src/index.ts"
       ]
-    }
+    },
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext"
   },
   "exclude": [
     "node_modules",
     "tmp"
+  ],
+  "files": [
+    "libs/ui/src/index.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

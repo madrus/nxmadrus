@@ -33,7 +33,7 @@ Styleguidist is a great tool but not without some toll:
 Add `styleguide.config.js` to the root of the package:
 
 <details>
-<summary>packages/ui/styleguide.config.js</summary>
+<summary>libs/ui/styleguide.config.js</summary>
 
 ```js
 const path = require('path')
@@ -88,7 +88,7 @@ The config file contains 3 important sections:
 Add the scripts section to `package.json` file in the package root:
 
 <details>
-<summary>packages/ui/package.json</summary>
+<summary>libs/ui/package.json</summary>
 
 ```json
 ...
@@ -122,7 +122,7 @@ Initial setup
 
 ```bash
 yarn add -D tailwindcss autoprefixer postcss-cli postcss-import
-cd packages/ui
+cd libs/ui
 npx tailwind init --full
 cd ../..
 ```

@@ -19,22 +19,46 @@ This project was generated using [Nx](https://nx.dev).
 
 ### Nx Root Project Creation
 
-I have installed the initial project with this command: `npx create-nx-workspace@latest`. Further, my choices were:
-- React Typescript
-- no Nx Cloud
-- Stylguidist UI library with `vitejs`
+Initial project setup:
 
-Then I have deleted `package-lock.json` and ran `yarn` to switch from `npm` to `yarn`. Also, I have rename my main git branch from `master` to `main`.
+```
+$ npx create-nx-workspace@latest --preset=empty
+# nx-madrus
+# no cloud
+$ cd madrus/
+$ yarn add -D @nxext/react @nxext/vitest vite
+$ yarn nx g @nxext/react:application it-force
+# no css
+$ yarn nx g @nxext/react:library ui
+# no css
+```
 
-I have copied my favorite `prettier` en `eslint` related files from another project.
+?> We have got created our new packages inside the `apps/it-force` and `libs/ui` folders. A big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
+
+We need to fix a couple of small issues with `package.json`.
+
+1. Move `tslib` from `dependencies` to `devDependencies`
+2. Switch from `npm` to `yarn`
+    ```bash
+    $ npx rimraf node_modules/ package-lock.json
+    $ yarn
+    ```
+
+I have renamed my main git branch from `master` to `main`.
+
+Also, Vite requires a couple of fixes for our `tsconfig.base.json`:
+
+```json
+...
+"compilerOptions": {
+  "isolatedModules": true,
+}
+...
+```
+
+Also, I have copied my favorite `prettier` en `eslint` related files from another project.
 
 ### Plugins
-
-Added the following plugins:
-
-```bash
-yarn add @nrwl/react @nxext/react @nxext/vitest
-```
 
 This is the list of installed plugins (`yarn nx list`):
 
@@ -44,13 +68,16 @@ This is the list of installed plugins (`yarn nx list`):
    @nrwl/jest (executors,generators)
    @nrwl/js (executors,generators)
    @nrwl/linter (executors,generators)
+   @nrwl/node (executors,generators)
    @nrwl/react (executors,generators)
    @nrwl/storybook (executors,generators)
    @nrwl/web (executors,generators)
    @nrwl/workspace (executors,generators)
    @nxext/react (generators)
    @nxext/vite (executors,generators)
+   @nxext/vitest (executors,generators)
    nx (executors)
+   nx-plugin-vite (executors,generators)
 ```
 
 We can check __capabilities__ of an installed plugin like this:
