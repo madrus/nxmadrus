@@ -20,6 +20,7 @@
     "strict": true,
     "target": "ESNext",
     "types": [
+      "@nxext/react/client",
       "vite/client"
     ],
     "useDefineForClassFields": true,

@@ -74,3 +74,185 @@ export default defineConfig({
    1. words like `describe` and `it` be accepted without linting warnings even though Jest is not installed;
    2. unit tests have Jest-like behavior based on `jsdom` environment
    3. we get the possibility to create code coverage reports
+
+#### TSConfig - Check Check Double-Check
+
+In the `tsconfig.base.json` ensure the following settings:
+
+<details>
+<summary>tsconfig.base.json</summary>
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "paths": {
+      "@madrus/ui": [
+        "libs/ui/src/index.ts"
+      ]
+    },
+    ...
+  },
+  ...
+  "files": [
+    "libs/ui/src/index.ts"
+  ],
+  ...
+}
+```
+
+</details>
+
+Check the `tsconfig.node.json` to ensure it references `vite.config.ts` and not `vitest.config.ts`:
+
+```json
+"include": [
+  "vite.config.ts"
+]
+```
+
+### Apps and Libs
+
+Presently, I have created two packages: an application `apps/it-force` and a library `libs/ui`. We need to make sure we have several files in the root of each project.
+
+?> Officially, the files inside each application or library folder should extend the same file in the root of the project (see above). However, I failed to make my project work when using this extension technique.
+
+<details>
+<summary>vite.config.ts</summary>
+
+```ts
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), tsconfigPaths()],
+  test: {
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+    },
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['src/setupTests.ts'],
+  },
+})
+```
+
+</details>
+
+This file is a full clone of the same file in the project root. It has however one extra very important setting: `setupFiles: ['src/setupTests.ts']` (see below).
+
+<details>
+<summary>vite-env.d.ts</summary>
+
+```ts
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+```
+
+</details>
+
+As one has already noticed, I am repeating these two references in many placed. Somehow I failed to get the stuff running when I had them inside this file only. :cry:
+
+<details>
+<summary>src/setupTests.ts</summary>
+
+```ts
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom'
+```
+
+</details>
+
+Again, according to the official documentation referencing this file from `vite.config.ts` should be enough for __Vitest__ to understand `jest-dom` extended functions like `.toHaveTextContent(...)` or `.toBeInTheDocument()`. However, my tests failed to recognize them until I added this import line to each `spec` file.
+
+<details>
+<summary>tsconfig.json</summary>
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "noEmit": true,
+    ...
+    "types": [
+      "@nxext/react/client",
+      "vite/client"
+    ],
+    ...
+  },
+  ...
+  "include": [
+    "src",
+    "vite.config.ts"
+  ],
+  ...
+}
+```
+
+</details>
+
+These are the settings common for both applications and libraries. Inside the one in the application (`it-force`) folder, we need to add another very important setting that links the application to the corresponding library:
+
+```json
+{
+  ...
+  "files": [
+    "../../libs/ui/src/index.ts"
+  ],
+  ...
+}
+```
+
+!> Make sure that this `index.ts` file exports all the necessary library components to be imported in the application.
+
+<details>
+<summary>tsconfig.lib.json</summary>
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "types": [
+      "vite/client",
+      "node"
+    ]
+    ...
+  }
+  ...
+}
+```
+
+</details>
+
+<details>
+<summary>tsconfig.spec.json</summary>
+
+```json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "types": [
+      "vitest/globals",
+      "node"
+    ]
+    ...
+  }
+  ...
+}
+```
+
+</details>
+
+I am not 100% sure that the settings are the minimal necessary, but everything works, so - hey! - who cares?!
+
