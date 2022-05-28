@@ -46,7 +46,7 @@ We need to fix a couple of small issues with `package.json`.
 
 I have renamed my main git branch from `master` to `main`.
 
-Also, Vite requires a couple of fixes for our `tsconfig.base.json`:
+Vite requires a couple of fixes for our `tsconfig.base.json`:
 
 ```json
 ...
@@ -56,7 +56,7 @@ Also, Vite requires a couple of fixes for our `tsconfig.base.json`:
 ...
 ```
 
-Also, I have copied my favorite `prettier` en `eslint` related files from another project.
+And last but not least, I have copied my favorite `prettier` en `eslint` related files from another project.
 
 ### Plugins
 
@@ -105,7 +105,7 @@ When you are satisfied, run this command without it.
 My answers:
 
 - `IT Force`
-- `Emotion`
+- `none`
 - `React Router`
 
 We have got created two packages inside the `packages` folder: `it-force` and `it-force-e2e`.
@@ -137,19 +137,3 @@ Most probably, the first time you run it, it fails because a bunch of extra NPM 
 - `@typescript-eslint/parser`
 - `eslint`
 - `eslint-config-prettier`
-
-## Add Vitest and remove Jest
-
-In the project root run:
-
-```bash
-yarn nx g @nxext/vitest:init
-```
-
-This will create the `vitest.config.ts` file.
-
-Now, we can add Vitest to any of our packages:
-
-```bash
-yarn nx g @nxext/vitest:vitest-project
-```
