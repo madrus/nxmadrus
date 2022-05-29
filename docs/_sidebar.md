@@ -1,4 +1,6 @@
 - [Home](/)
-- [UI with StyleGuidist](/ui.md)
+- [Vite and Vitest](/vitest.md)
+- [StyleGuidist](/styleguidist.md)
+- [Tailwind](/tailwind.md)
 - [References](/references.md)
-- [Nx Official Readme](/nx-readme.md)
+- [Official Nx Readme](/nx-readme.md)

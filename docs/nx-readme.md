@@ -1,4 +1,4 @@
-# Nx Official Readme
+# Official Nx Readme
 
 ## Adding capabilities to your workspace
 
