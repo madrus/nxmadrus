@@ -27,7 +27,8 @@ node_modules
 # misc
 /.sass-cache
 /connect.lock
-/coverage
+**/build/
+**/coverage/
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -37,4 +38,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-libs/ui/styleguide/build

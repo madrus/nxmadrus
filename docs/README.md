@@ -26,14 +26,14 @@ $ npx create-nx-workspace@latest --preset=empty
 # nx-madrus
 # no cloud
 $ cd madrus/
-$ yarn add -D @nxext/react @nxext/vitest vite
+$ yarn add -D @nxext/react @nxext/vitest vite vitest/ui
 $ yarn nx g @nxext/react:application it-force
 # no css
 $ yarn nx g @nxext/react:library ui
 # no css
 ```
 
-?> We have got created our new packages inside the `apps/it-force` and `libs/ui` folders. A big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
+?> We have got created our new packages inside the `apps/it-force` and `libs/ui` folders. A big difference with `@nrwl/react` that creates both applications and libraries inside the `packages/it-force` and `packages/ui` folders.
 
 We need to fix a couple of small issues with `package.json`.
 

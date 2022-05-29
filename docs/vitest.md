@@ -256,3 +256,43 @@ These are the settings common for both applications and libraries. Inside the on
 
 I am not 100% sure that the settings are the minimal necessary, but everything works, so - hey! - who cares?!
 
+## Scripts
+
+In order to run Vite and Vitest scripts, we need to do a couple of extra steps. When we generate our applications and libraries using `@nxext/vitest`, only the standard targets get configured in our `project.json` files:
+
+- inside `apps/it-force` these are: `build`, `serve`, `lint`, `test`;
+- inside `libs/ui` these are:  `build`, `lint`, `test`.
+
+However, there are more options offered by both Vite and Vitest. To use them, we just need to add them as normal NPM scripts to to local `package.json` files in `apps/it-force` and `libs/ui`:
+
+<details>
+<summary>package.json</summary>
+
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "build": "tsc && vite build",
+    "coverage": "vitest run --coverage",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test-ui": "vitest --ui",
+    ...
+  }
+  ...
+}
+```
+
+</details>
+
+!> Don't use colons `":"` in the script names, replace them with dashes `"-"`. Otherwise, Nx engine will give errors trying to parse the terminal commands to run them.
+
+With these new scripts added, we can run them like this:
+
+```bash
+yarn nx coverage it-force
+yarn nx test-ui ui
+```
+
+By the way, this `test-ui` script opens a beautiful Vitest UI to make testing real visual fun. Be sure to try it yourself!
