@@ -1,0 +1,40 @@
+module.exports = {
+  transparent: 'transparent',
+  black: '#0b1728',
+  white: '#ffffff',
+  gray: {
+    darkest: '#181D35',
+    darker: '#323944',
+    dark: '#565968',
+    base: '#9095ad',
+    light: '#d3d5de',
+    lighter: '#dfe4f9',
+    lightest: '#f9fafb',
+  },
+  slate: {
+    // inspired by the Google Slate theme
+    darkest: '#1B345C',
+    darker: '#373f64',
+    dark: '#515f9d',
+    base: '#5b69a7',
+    light: '#8391cf',
+    lighter: '#abb9f7',
+    lightest: '#f2f6fc',
+  },
+  accent: {
+    primary: '#968a52',
+    secondary: '#a7995b',
+  },
+  teak: {
+    50: '#fbfaf7',
+    100: '#f6f5ef',
+    200: '#e9e6d6',
+    300: '#dcd6bd',
+    400: '#c1b88c',
+    500: '#a7995b',
+    600: '#968a52',
+    700: '#7d7344',
+    800: '#645c37',
+    900: '#524b2d',
+  },
+}
