@@ -14,7 +14,7 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "noEmit": true,
+    "noEmit": false,
     "resolveJsonModule": true,
     "skipLibCheck": false,
     "strict": true,
@@ -26,10 +26,7 @@
     "useDefineForClassFields": true
   },
   "files": [],
-  "include": [
-    "src",
-    "vite.config.ts"
-  ],
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"
