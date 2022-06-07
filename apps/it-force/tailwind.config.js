@@ -3,11 +3,10 @@ const { join } = require('path')
 
 module.exports = {
   content: [
-    join(__dirname, 'src/**/*!(*.stories|*.spec).{html,js,ts,tsx}'),
+    join(__dirname, './src/**/!(*.spec).{html,ts,tsx}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   presets: [require('../../tailwind-workspace-preset.js')],
-  darkMode: 'media', // or 'class'
   theme: {
     screens: {
       sm: '640px',
