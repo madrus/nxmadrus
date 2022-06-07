@@ -599,8 +599,105 @@ select {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-/* @import "./custom-base-styles.css"; */
-/* @import "./custom-components.css"; */
+/* default light theme */
+:root {
+  --color-primary: #f2f6fc;
+  --color-secondary: #1B345C;
+  --color-link: #968a52;
+  --color-link-hover: #a7995b;
+}
+/* dark theme */
+[data-theme='dark'],
+.dark-mode {
+  --color-primary: #1B345C;
+  --color-secondary: #f2f6fc;
+  --color-link: #a7995b;
+  --color-link-hover: #968a52;
+}
+.markdown {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  line-height: 1.625;
+}
+.markdown p, .markdown ol, .markdown blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.markdown ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  list-style: disc outside none;
+}
+.markdown ul li {
+  margin-left: 1.25rem;
+
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+.markdown h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  line-height: 1.375;
+}
+@media (min-width: 768px) {
+
+  .markdown h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+.markdown h3 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  line-height: 1.375;
+}
+@media (min-width: 768px) {
+
+  .markdown h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+.markdown a,
+.markdown a:visited {
+  color: var(--color-link);
+  font-weight: 500;
+}
+.markdown a:hover,
+.markdown a:focus,
+.markdown a:active {
+  color: var(--color-link-hover);
+  font-weight: 500;
+}
+.tooltip {
+  color: #9ca3af;
+}
+[type='submit']:hover {
+  background-color: var(--color-secondary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+[type='reset']:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+.dark [type='reset'] {
+  border-color: var(--color-link);
+  color: var(--color-link);
+}
+.dark [type='reset']:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+p.error {
+  color: #f87171;
+}
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -609,4 +706,11 @@ select {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
-/* @import "./custom-utilities.css"; */
+/* @import 'tailwindcss/base';
+@import '../../../../shared/styles/base';
+@import '../../../../shared/styles/markdown';
+
+@import 'tailwindcss/components';
+@import '../../../../shared/styles/components';
+
+@import 'tailwindcss/utilities'; */
