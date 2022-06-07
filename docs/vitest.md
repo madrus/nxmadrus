@@ -184,7 +184,6 @@ Again, according to the official documentation referencing this file from `vite.
     "noEmit": true,
     ...
     "types": [
-      "@nxext/react/client",
       "vite/client"
     ],
     ...
