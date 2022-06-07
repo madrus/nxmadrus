@@ -1,19 +1,12 @@
 import { Test } from '@madrus/ui'
 import { FC } from 'react'
-import Normalize from 'react-normalize'
 
 import { Route, Routes, Link } from 'react-router-dom'
+import { Layout } from './components/layout'
 
 export const App: FC = () => {
   return (
-    <>
-      <Normalize />
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
+    <Layout>
       <div role="navigation">
         <ul>
           <li>
@@ -48,6 +41,6 @@ export const App: FC = () => {
         />
       </Routes>
       {/* END: routes */}
-    </>
+    </Layout>
   )
 }
