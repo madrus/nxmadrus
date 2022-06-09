@@ -6,12 +6,13 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "yarn build-css && tsc && vite build",
+    "dev": "yarn build-css && vite",
     "coverage": "vitest run --coverage",
     "preview": "vite preview",
     "test": "vitest",
     "test-ui": "vitest --ui",
-    "build-css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "watch-css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "build-css": "postcss src/assets/tailwind.css -o dist/assets/main.css --map",
+    "watch-css": "postcss src/assets/*.css -o dist/assets/main.css --map -w"
   }
 }

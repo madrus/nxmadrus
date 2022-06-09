@@ -1,0 +1,17 @@
+/* default light theme */
+:root {
+  --test1: '#FF00FF';
+  --color-primary: theme('colors.light.background');
+  --color-secondary: theme('colors.light.foreground');
+  --color-link: theme('colors.light.link');
+  --color-link-hover: theme('colors.light.linkHover');
+}
+
+/* dark theme */
+[data-theme='dark'],
+.dark-mode {
+  --color-primary: theme('colors.dark.background');
+  --color-secondary: theme('colors.dark.foreground');
+  --color-link: theme('colors.dark.link');
+  --color-link-hover: theme('colors.dark.linkHover');
+}

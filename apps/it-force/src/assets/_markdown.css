@@ -1,0 +1,43 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ol,
+.markdown blockquote {
+  @apply my-4;
+}
+
+.markdown ul {
+  @apply my-4;
+
+  list-style: disc outside none;
+}
+
+.markdown ul li {
+  @apply ml-5;
+
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.markdown h2 {
+  @apply text-2xl md:text-3xl font-semibold mt-8 leading-snug;
+}
+
+.markdown h3 {
+  @apply text-xl md:text-2xl font-semibold mt-6 leading-snug;
+}
+
+.markdown a,
+.markdown a:visited {
+  color: var(--color-link);
+  font-weight: 500;
+}
+
+.markdown a:hover,
+.markdown a:focus,
+.markdown a:active {
+  color: var(--color-link-hover);
+  font-weight: 500;
+}

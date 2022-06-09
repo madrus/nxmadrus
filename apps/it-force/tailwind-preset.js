@@ -1,13 +1,14 @@
-const colors = require('./shared/styles/colors')
+const colors = require('../../shared/styles/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   theme: {
     extend: {
       screens: {
         xs: '375px',
+        ...defaultTheme.screens,
       },
       colors: {
-        ...colors,
         inherit: colors.inherit,
         current: colors.current,
         light: {

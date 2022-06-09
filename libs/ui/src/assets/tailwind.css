@@ -1,1 +1,8 @@
-@import '../../../../shared/styles/global.css';
+@import 'tailwindcss/base';
+@import './base';
+@import './markdown';
+
+@import 'tailwindcss/components';
+@import './components';
+
+@import 'tailwindcss/utilities';

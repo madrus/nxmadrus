@@ -1,13 +1,9 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 
-import { App } from './App'
+import App from './App'
+// import '../dist/assets/main.css'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 
 /** Strict mode should not be used with React Router v6 */
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-)
+root.render(<App />)
