@@ -1,5 +1,6 @@
 /* default light theme */
 :root {
+  --test1: '#FF00FF';
   --color-primary: theme('colors.light.background');
   --color-secondary: theme('colors.light.foreground');
   --color-link: theme('colors.light.link');

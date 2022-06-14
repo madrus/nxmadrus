@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import '../../assets/main.css'
+import '../../shared/styles/main.css'
 
 type TestProps = {
   name?: string

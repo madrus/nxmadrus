@@ -1,9 +1,10 @@
-import { createRoot } from 'react-dom/client'
+import * as ReactDom from 'react-dom/client'
 
 import App from './App'
-// import '../dist/assets/main.css'
+import '../dist/assets/main.css'
+// import './index.css'
 
-const root = createRoot(document.getElementById('root') as HTMLElement)
+const root = ReactDom.createRoot(document.getElementById('root') as HTMLElement)
 
 /** Strict mode should not be used with React Router v6 */
 root.render(<App />)

@@ -21,6 +21,9 @@
     "paths": {
       "@madrus/ui": [
         "libs/ui/src/index.ts"
+      ],
+      "@madrus/styles": [
+        "libs/ui/src/shared/style/main.css"
       ]
     },
     "resolveJsonModule": true,

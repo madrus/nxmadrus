@@ -1,8 +1,9 @@
-@import 'tailwindcss/base';
-@import './base';
-@import './markdown';
+@import './_tw-base';
+@import './_base';
+@import './_markdown';
 
-@import 'tailwindcss/components';
-@import './components';
+@import './_tw-components';
+@import './_components';
 
-@import 'tailwindcss/utilities';
+@import './_tw-utilities';
+@import './_global';
