@@ -11,20 +11,13 @@
     "importHelpers": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
-      "@madrus/ui": [
-        "libs/ui/src/index.ts"
-      ],
-      "@madrus/styles": [
-        "libs/ui/src/shared/style/main.css"
-      ]
+      "@madrus/style": ["libs/style/src/index.ts"],
+      "@madrus/styles": ["libs/ui/src/shared/style/main.css"],
+      "@madrus/ui": ["libs/ui/src/index.ts"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
@@ -34,13 +27,8 @@
     "strict": true,
     "target": "ESNext"
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ],
-  "files": [
-    "libs/ui/src/index.ts"
-  ],
+  "exclude": ["node_modules", "tmp"],
+  "files": ["libs/ui/src/index.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

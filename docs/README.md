@@ -21,19 +21,18 @@ This project was generated using [Nx](https://nx.dev).
 
 Initial project setup:
 
-```
+```bash
 $ npx create-nx-workspace@latest --preset=empty
 # nx-madrus
 # no cloud
 $ cd madrus/
-$ yarn add -D @nxext/react @nxext/vitest vite vitest/ui
-$ yarn nx g @nxext/react:application it-force
-# no css
-$ yarn nx g @nxext/react:library ui
-# no css
+$ yarn add -D @nxext/vite @nxext/vitest vitest/ui
+$ yarn nx g @nxext/vite:application it-force # main application
+$ yarn nx g @nxext/vite:library ui           # UI components
+$ yarn nx g @nxext/vite:library style        # global Tailwind + custom CSS
 ```
 
-?> We have got created our new packages inside the `apps/it-force` and `libs/ui` folders. A big difference with `@nrwl/react` that creates both applications and libraries inside the `packages/it-force` and `packages/ui` folders.
+?> The newly created `it-force` application is now located inside the `apps` folder and the newly created `style` and `ui` libraries inside the `libs` folder. That is a big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
 
 We need to fix a couple of small issues with `package.json`.
 
@@ -86,29 +85,31 @@ We can check __capabilities__ of an installed plugin like this:
 yarn nx list @nrwl/react
 ```
 
-### Generate the React Project
+### Generate a new React project or library
 
 To see the generation options, run something like this:
 
 ```bash
+yarn nx g @nxext/vite:application --help
 yarn nx g @nrwl/react:application --help
 ```
 
 Use `--dry-run` option to see the dialog and the list of files to be created without actually creating them.
 
 ```bash
+yarn nx g @nxext/vite:application --dry-run
 yarn nx g @nrwl/react:application --dry-run
 ```
 
-When you are satisfied, run this command without it.
+When you are satisfied, run the same command without `--dry-run` flag.
 
-My answers:
+For `@nrwl/react` my answers would be:
 
 - `IT Force`
 - `none`
 - `React Router`
 
-We have got created two packages inside the `packages` folder: `it-force` and `it-force-e2e`.
+We would see two new packages inside the `packages` folder: `it-force` and `it-force-e2e`.
 
 ### Run the project
 
