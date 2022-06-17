@@ -1,5 +1,11 @@
 # Tailwind
 
+## Philosophy
+
+__Tailwind__ adds content and utility CSS based on our actual code to minimize the resulting CSS bundle. At one time, I was thinking of creating a shared lib with all the Tailwind stuff including my custom styling. But then I realized that it has little sense. Inside such shared library, we will get no optimization like purging of the not used CSS rules as it is not aware of the specific utility classes we use in siblings apps and libs.
+
+Every sibling app or lib using Tailwind would then need to recompile its CSS based on the globally shared Tailwind CSS plus the actual content and utilities based on the current app or lib. A better option is to compile CSS on a per app or lib basis individually. So, when we import shared components from a lib into an app, we only import `.tsx` but __not__ that lib own styles. Then inside the app, Tailwind recompilation will take care of CSS __including__ the utility classes from those shared lib components.
+
 ## Add Tailwind
 
 Initial setup

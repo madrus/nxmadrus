@@ -42,3 +42,4 @@ Thumbs.db
 # Custom Files
 libs/it-force/src/assets/main.css
 libs/ui/src/assets/main.css
+apps/it-force/dist

@@ -29,10 +29,9 @@ $ cd madrus/
 $ yarn add -D @nxext/vite @nxext/vitest vitest/ui
 $ yarn nx g @nxext/vite:application it-force # main application
 $ yarn nx g @nxext/vite:library ui           # UI components
-$ yarn nx g @nxext/vite:library style        # global Tailwind + custom CSS
 ```
 
-?> The newly created `it-force` application is now located inside the `apps` folder and the newly created `style` and `ui` libraries inside the `libs` folder. That is a big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
+?> The newly created `it-force` application is now located inside the `apps` folder and the newly created `ui` library inside the `libs` folder. That is a big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
 
 We need to fix a couple of small issues with `package.json`.
 

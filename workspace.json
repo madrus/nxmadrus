@@ -3,7 +3,6 @@
   "version": 2,
   "projects": {
     "it-force": "apps/it-force",
-    "style": "libs/style",
     "ui": "libs/ui"
   }
 }
