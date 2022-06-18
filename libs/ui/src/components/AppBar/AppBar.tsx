@@ -1,9 +1,11 @@
 import { FC } from 'react'
 
-type TestProps = {
+type AppBarProps = {
   name?: string
 }
 
-export const Test: FC<TestProps> = ({ name }) => (
+const AppBar: FC<AppBarProps> = ({ name }) => (
   <h1 className={'text-3xl underline'}>{`Hello ${name}`}</h1>
 )
+
+export default AppBar
