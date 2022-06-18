@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, ReactNode } from 'react'
+import { AppBar } from '@madrus/ui'
 // import BottomBar from './BottomBar'
 // import { Container } from './common'
 // import Footer from './Footer'
-import { AppBar } from '../appbar'
 
 type LayoutProps = {
   children: ReactNode

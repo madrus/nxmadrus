@@ -17,11 +17,11 @@
         "outputPath": "dist/apps/it-force",
         "stylePreprocessorOptions": {
           "includePaths": [
-            "libs/ui/src/shared/styles"
+            "libs/ui/dist/assets"
           ]
         },
         "styles": [
-          "libs/ui/src/shared/styles/main.css"
+          "libs/ui/dist/assets/main.css"
         ],
         "extractCss": true
       },

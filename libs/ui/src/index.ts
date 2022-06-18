@@ -1,1 +1,1 @@
-export { default as AppBar } from './components/AppBar/AppBar'
+export * from './components'

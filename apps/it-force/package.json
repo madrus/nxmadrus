@@ -13,6 +13,6 @@
     "test": "vitest",
     "test-ui": "vitest --ui",
     "build-css": "postcss src/assets/tailwind.css -o dist/assets/main.css --map",
-    "watch-css": "postcss src/assets/*.css -o dist/assets/main.css --map -w"
+    "watch-css": "postcss src/assets/tailwind.css -o dist/assets/main.css --map -w"
   }
 }
