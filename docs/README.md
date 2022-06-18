@@ -27,11 +27,13 @@ $ npx create-nx-workspace@latest --preset=empty
 # no cloud
 $ cd madrus/
 $ yarn add -D @nxext/vite @nxext/vitest vitest/ui
-$ yarn nx g @nxext/vite:application it-force # main application
-$ yarn nx g @nxext/vite:library ui           # UI components
+$ yarn nx g @nxext/vite:application it-force     # main application
+$ yarn nx g @nxext/react:library ui --buildable  # shared components library
 ```
 
-?> The newly created `it-force` application is now located inside the `apps` folder and the newly created `ui` library inside the `libs` folder. That is a big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
+?> I have used the `--buildable` flag for the library just in case, not sure yet if it is necessary in our case.
+
+!> The newly created `it-force` application is now located inside the `apps` folder and the newly created `ui` library inside the `libs` folder. That is a big difference with `@nrwl/react` that creates both applications and libraries inside the `packages` folder.
 
 We need to fix a couple of small issues with `package.json`.
 

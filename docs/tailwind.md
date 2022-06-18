@@ -1,10 +1,12 @@
-# Tailwind
+# Tailwind CSS
 
 ## Philosophy
 
-__Tailwind__ adds content and utility CSS based on our actual code to minimize the resulting CSS bundle. At one time, I was thinking of creating a shared lib with all the Tailwind stuff including my custom styling. But then I realized that it has little sense. Inside such shared library, we will get no optimization like purging of the not used CSS rules as it is not aware of the specific utility classes we use in siblings apps and libs.
+__Tailwind__ adds content and utility CSS based on our actual code to minimize the resulting CSS bundle. At one time, I was thinking of creating a shared lib with all the Tailwind stuff including my custom styling. But then I realized that it had little added value. Inside such a shared library, we will get no optimization like purging of the not used CSS rules as such a shared library is not aware of the specific utility classes we use in our sibling apps and libs.
 
-Every sibling app or lib using Tailwind would then need to recompile its CSS based on the globally shared Tailwind CSS plus the actual content and utilities based on the current app or lib. A better option is to compile CSS on a per app or lib basis individually. So, when we import shared components from a lib into an app, we only import `.tsx` but __not__ that lib own styles. Then inside the app, Tailwind recompilation will take care of CSS __including__ the utility classes from those shared lib components.
+The current working concept works as follows. Every sibling app or lib recompiles its own Tailwind CSS taking only its own utility classes in consideration. Consequently, when an application imports shared library components, it needs only to import the components themselves, i.e., `.tsx` but __not__ that library's own compiled CSS. Finally, inside the application we recompile the Tailwind CSS, which will take care of the styles and utility classes but also __include__ the utility classes from those imported shared lib components.
+
+This means that within each app or lib the optimization concerns only the stuff it is using both internally and via import of shared library components. In this way, we will not be duplicating the CSS that will be loaded into the browser.
 
 ## Add Tailwind
 
@@ -89,7 +91,7 @@ We place all the partial files to be imported in the same folder.
 
 ## Configure Styling Scripts
 
-We add the following scripts to the `package.json` in the root of `it-force` application:
+We add the following scripts to the `package.json` in the root of each application and library:
 
 ```json
 {
@@ -102,4 +104,4 @@ We add the following scripts to the `package.json` in the root of `it-force` app
 }
 ```
 
-This will create `main.css` with all the Tailwind and our custom styles inside the `it-force/dist/assets` folder.
+This will create `main.css` with all the Tailwind and our custom styles inside the `dist/assets` folder of each application and library.

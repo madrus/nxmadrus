@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import '../../shared/styles/main.css'
 
 type TestProps = {
   name?: string

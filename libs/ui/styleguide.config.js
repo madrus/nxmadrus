@@ -13,6 +13,7 @@ module.exports = {
         )
       : require('react-docgen').parse(source, resolver, handlers)
   },
+  require: ['babel-polyfill', path.join(__dirname, 'dist/assets/main.css')],
   webpackConfig: {
     module: {
       rules: [

@@ -1,7 +1,7 @@
 - [Home](/)
 - [Vite and Vitest](/vitest.md)
+- [Tailwind CSS](/tailwind.md)
 - [StyleGuidist](/styleguidist.md)
-- [Tailwind](/tailwind.md)
 - [Tweaks](/tweaks.md)
 - [References](/references.md)
 - [Official Nx Readme](/nx-readme.md)
