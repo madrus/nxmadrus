@@ -20,7 +20,7 @@
     "moduleResolution": "node",
     "paths": {
       "@madrus/styles": [
-        "libs/ui/dist/assets/main.css"
+        "libs/ui/dist/styles/main.css"
       ],
       "@madrus/ui": [
         "libs/ui/src/index.ts"

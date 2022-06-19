@@ -104,4 +104,4 @@ We add the following scripts to the `package.json` in the root of each applicati
 }
 ```
 
-This will create `main.css` with all the Tailwind and our custom styles inside the `dist/assets` folder of each application and library.
+This will create `main.css` with all the Tailwind and our custom styles inside the `dist/styles` folder of each application and library.

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { AppBar } from '../../components/AppBar'
-import { Layout } from '../../components/Layout1'
+import { Layout } from '../../components/Layout'
 
 const Page2: FC = () => (
   <Layout>

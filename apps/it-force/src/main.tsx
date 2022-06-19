@@ -1,5 +1,5 @@
 import App from './App'
-import '../dist/assets/main.css'
+// import '../dist/styles/main.css'
 import { createRoot } from 'react-dom/client'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)

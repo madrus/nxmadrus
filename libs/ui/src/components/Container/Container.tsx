@@ -1,7 +1,18 @@
 import { FC, ReactNode } from 'react'
+import cn from 'classnames'
 
-const Container: FC<{ children: ReactNode }> = ({ children, ...rest }) => (
-  <div {...rest} role={'presentation'} aria-label={'presentational container'}>
+type ContainerProps = {
+  children: ReactNode
+  className?: string
+  [x: string]: unknown
+}
+
+const Container: FC<ContainerProps> = ({ className, children, ...rest }) => (
+  <div
+    {...rest}
+    className={cn('w-full max-w-5xl mx-auto', className)}
+    role={'presentation'}
+  >
     {children}
   </div>
 )
