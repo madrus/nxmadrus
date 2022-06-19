@@ -1,11 +1,11 @@
-import { AppBar } from '@madrus/ui'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { Layout } from '../../components/layout'
+import { AppBar } from '../../components/AppBar'
+import { Layout } from '../../components/Layout1'
 
 const Page2: FC = () => (
   <Layout>
-    <AppBar name={'Big Boss'} />
+    <AppBar />
     <div>
       <Link to="/">Click here to go back to root page.</Link>
     </div>

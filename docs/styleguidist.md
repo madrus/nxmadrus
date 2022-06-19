@@ -37,13 +37,13 @@ module.exports = {
         )
       : require('react-docgen').parse(source, resolver, handlers)
   },
-  require: ['babel-polyfill', path.join(__dirname, 'dist/assets/main.css')],
+  require: ['babel-polyfill', path.join(__dirname, 'dist/styles/main.css')],
   webpackConfig: {
     module: {
       rules: [
         // Babel loader will use your project’s .babelrc
         {
-          test: /\.(js|jsx|ts|tsx)$/,
+          test: /\.(js|jsx|ts|tsx|md)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
@@ -55,7 +55,7 @@ module.exports = {
       ],
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.md'],
     },
     externals: {
       react: 'React',

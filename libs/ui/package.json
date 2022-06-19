@@ -15,9 +15,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test-ui": "vitest --ui",
-    "start-ui": "styleguidist server",
-    "build-ui": "styleguidist build",
-    "build-css": "postcss src/assets/tailwind.css -o dist/assets/main.css --map",
-    "watch-css": "postcss src/assets/tailwind.css -o dist/assets/main.css -w"
+    "start-ui": "concurrently \"yarn build-css\" \"styleguidist server\"",
+    "build-ui": "yarn build-css && styleguidist build",
+    "build-css": "postcss src/styles/tailwind.css -o dist/styles/main.css -w"
   }
 }

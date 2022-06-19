@@ -98,8 +98,8 @@ We add the following scripts to the `package.json` in the root of each applicati
   ...
   scripts: {
     ...
-    "build-css": "postcss src/assets/tailwind.css -o dist/assets/main.css --map",
-    "watch-css": "postcss src/assets/*.css -o dist/assets/main.css --map -w"
+    "build-css": "postcss src/styles/tailwind.css -o dist/styles/main.css --map",
+    "watch-css": "postcss src/styles/*.css -o dist/styles/main.css --map -w"
   }
 }
 ```

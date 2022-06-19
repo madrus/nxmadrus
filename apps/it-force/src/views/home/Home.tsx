@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { Layout } from '../../components/layout'
+import { Layout } from '../../components/Layout1'
 
 const Home: FC = () => (
   <Layout>
