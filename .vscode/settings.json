@@ -12,5 +12,6 @@
     "titleBar.inactiveBackground": "#6ca23899",
     "titleBar.inactiveForeground": "#15202b99"
   },
-  "peacock.color": "#6ca238"
+  "peacock.color": "#6ca238",
+  "testing.automaticallyOpenPeekView": "never"
 }

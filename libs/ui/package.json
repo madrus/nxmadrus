@@ -17,6 +17,6 @@
     "test-ui": "vitest --ui",
     "start-ui": "concurrently \"yarn build-css\" \"styleguidist server\"",
     "build-ui": "yarn build-css && styleguidist build",
-    "build-css": "postcss src/styles/tailwind.css -o dist/styles/main.css -w"
+    "build-css": "postcss ./assets/styles/tailwind.css -o ./styleguide/styles.css"
   }
 }

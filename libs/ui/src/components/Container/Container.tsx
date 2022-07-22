@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import cn from 'classnames'
 
 type ContainerProps = {
@@ -10,7 +10,7 @@ type ContainerProps = {
 const Container: FC<ContainerProps> = ({ className, children, ...rest }) => (
   <div
     {...rest}
-    className={cn('w-full max-w-5xl mx-auto', className)}
+    className={cn(className, 'w-full max-w-2xl mx-auto')}
     role={'presentation'}
   >
     {children}

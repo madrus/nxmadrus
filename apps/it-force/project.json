@@ -15,15 +15,6 @@
         "entryFile": "apps/it-force/src/index.html",
         "frameworkConfigFile": "@nxext/react/plugins/vite",
         "outputPath": "dist/apps/it-force",
-        "stylePreprocessorOptions": {
-          "includePaths": [
-            "libs/ui/dist/assets",
-            "libs/ui/dist/styles"
-          ]
-        },
-        "styles": [
-          "libs/ui/dist/styles/main.css"
-        ],
         "extractCss": true
       },
       "configurations": {

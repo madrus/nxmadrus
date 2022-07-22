@@ -7,12 +7,14 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn build-css && tsc && vite build",
-    "dev": "yarn build-css && vite",
+    "dev": "vite",
     "coverage": "vitest run --coverage",
     "preview": "vite preview",
     "test": "vitest",
     "test-ui": "vitest --ui",
-    "build-css": "postcss src/styles/tailwind.css -o dist/styles/main.css --map",
-    "watch-css": "postcss src/styles/tailwind.css -o dist/styles/main.css --map -w"
+    "start-dev": "yarn build-css && yarn dev",
+    "watch-dev": "concurrently \"yarn watch-css\" \"yarn dev\"",
+    "build-css": "postcss src/styles/tailwind.css -o dist/styles/main.css",
+    "watch-css": "postcss src/styles/tailwind.css -o dist/styles/main.css -w"
   }
 }

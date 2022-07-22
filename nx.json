@@ -18,13 +18,12 @@
     "tsconfig.base.json": "*",
     "workspace.json": "*"
   },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
   },
   "tasksRunnerOptions": {
     "default": {

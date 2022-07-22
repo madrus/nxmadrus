@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  title: 'Awesome Style Guide',
   components: 'src/components/**/*.{js,jsx,ts,tsx}',
   propsParser: (filePath, source, resolver, handlers) => {
     const { ext } = path.parse(filePath)
@@ -13,7 +14,7 @@ module.exports = {
         )
       : require('react-docgen').parse(source, resolver, handlers)
   },
-  require: ['babel-polyfill', path.join(__dirname, 'dist/styles/main.css')],
+  require: ['babel-polyfill', path.join(__dirname, 'styleguide/styles.css')],
   webpackConfig: {
     module: {
       rules: [
@@ -23,16 +24,15 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
-        // Other loaders that are needed for your components
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
       ],
     },
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.md'],
-    },
+    // resolve: {
+    //   extensions: ['.js', '.jsx', '.ts', '.tsx', '.md'],
+    // },
     externals: {
       react: 'React',
     },
